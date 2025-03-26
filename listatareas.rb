@@ -6,11 +6,42 @@
 #-----------------------------------------------------------------------------------
 class TaskList
 
+    #Método para Inicializar
+    def initialize()
+        @listatareas = {}
 
+    end
+    #Fin del método para Inicializar
 
-end
+    #Método para agregar tareas:
+    def agregar_tareas()
+        begin
+            #Variable para las fechas:
+            fecha = Time.now.strftime("%m/%d/%Y %H:%M:%S")
+            print("Ingrese el nombre de la tarea: ")
+            key = gets.chomp
+
+            print("Ingrese la descripción de la tarea: ")
+            descripcion = gets.chomp
+
+            @listatareas[key] = {
+            nombre: key,
+            descripcion: descripcion,
+            estado: false,
+            creada_en: fecha, 
+            finalizada_en: nil
+            }
+
+            puts("La tarea #{@listatareas[:nombre]} fue creada exitosamente.")
+        rescue StandardError => e
+            puts("Hubo un error al intentar crear la tarea, erorr: #{e.message}")
+        end #Final del manejo de excepciones
+    end #Fin del método para agregar tareas
+    
+
+end #Final de la implementación de la clase
 #-----------------------------------------------------------------------------------
-#Final de la implementación de la clase
+
 
 
 #Funciones principales:
@@ -48,80 +79,82 @@ end
 #Función Main del programa
 #---------------------------------------------------------------------------------------
 def main()
-
+    #Llamando a la clase
+    tasks = TaskList.new
     #Manejo de excepción:
     begin
+
         #Iniciando un loop de Do para realizar multiples veces la función menu 
         loop do
-        #Llamando la función Menu
-        menu()
+            #Llamando la función Menu
+            menu()
 
-        print("Selecciona la opción a desear: ")
+            print("Selecciona la opción a desear: ")
 
-        #Variables
-        opcion = gets.chomp
+            #Variables
+            opcion = gets.chomp
 
-        #Utilizando un método de Ruby llamado Case-When
-        case(opcion) 
-        
-        #Agregar Tareas
-        when "1"
-            limpiar_pantalla()
-        
+            #Utilizando un método de Ruby llamado Case-When
+            case(opcion) 
+            
+            #Agregar Tareas
+            when "1"
+                limpiar_pantalla()
+                tasks.agregar_tareas()
 
-        #Fin de agregar Tareas
-
-
-        #Marcar Tareas como Completadas
-        when "2"
-            limpiar_pantalla()
-        
-        #Fin de Marcar Tareas como Completadas
+            #Fin de agregar Tareas
 
 
-        #Eliminar Tareas
-        when "3"
-            limpiar_pantalla()
-
-        #Fin de Eliminar Tareas
-
-
-        #Ver Tareas Pendientes
-        when "4"
-            limpiar_pantalla()
-
-        #Fin de Ver Tareas Pendientes
+            #Marcar Tareas como Completadas
+            when "2"
+                limpiar_pantalla()
+            
+            #Fin de Marcar Tareas como Completadas
 
 
-        #Guardar Tareas o Actualizar
-        when "5"
-            limpiar_pantalla()
-        
+            #Eliminar Tareas
+            when "3"
+                limpiar_pantalla()
 
-        #Fin de Guardar Tareas o Actualizar
-
-
-        #Cargar otro archivo de Tareas
-        when "6"
-            limpiar_pantalla()
-        
-
-        #Fin de Cargar otro archivo de Tareas
+            #Fin de Eliminar Tareas
 
 
-        #Salir
-        when "7"
-            limpiar_pantalla()
-            print("Saliendo del programa...")
-            break
+            #Ver Tareas Pendientes
+            when "4"
+                limpiar_pantalla()
 
-        
-        #Fin de Salir
-        else
-            #Indicación para iniciar el error ArgumentError si hay valores no correctos.
-            raise StandardError if opcion != ""
+            #Fin de Ver Tareas Pendientes
 
-        end #Fin del Case-When
+
+            #Guardar Tareas o Actualizar
+            when "5"
+                limpiar_pantalla()
+            
+
+            #Fin de Guardar Tareas o Actualizar
+
+
+            #Cargar otro archivo de Tareas
+            when "6"
+                limpiar_pantalla()
+            
+
+            #Fin de Cargar otro archivo de Tareas
+
+
+            #Salir
+            when "7"
+                limpiar_pantalla()
+                print("Saliendo del programa...")
+                break
+
+            
+            #Fin de Salir
+            else
+                #Indicación para iniciar el error ArgumentError si hay valores no correctos.
+                raise ArgumentError if opcion != ""
+
+            end #Fin del Case-When
         
 
         end #Fin de Loop Do
@@ -130,10 +163,10 @@ def main()
         
     rescue StandardError => error
         # Captura cualquier error derivado de StandardError
-        puts ("Se encontraron problemas al iniciar la aplicación, intentélo más tarde. \n Erorr: #{error.class} - #{error.message}")
+        puts ("Se encontraron problemas al iniciar la aplicación, intentélo más tarde. \n Erorr: #{error.message}")
       
     end #Fin de Manejo de excepciones
-end
+end #Fin de la función main
 
 
 
