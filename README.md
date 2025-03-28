@@ -15,6 +15,8 @@ TaskList() = #Clase principal en donde abarcará todos los métodos necesarios p
 
 agregar_tareas() = #Este método permitirá la creación de tareas. Aquí es donde el usuario indicará el nombre y descripción de tareas. Además, el programa realizará una serie de operaciones para calcular el tiempo y el estado de la tarea.
 
+completar_tareas() = #Este método permitirá que el usuario pueda completar la tarea a escoger.
+
 ver_tareas() = #En este método, permitirá verificar todas las tareas disponibles ya sean pendientes o completadas que haya ingresado el usuario.
 
 eliminar_tareas() = #En este método, permitirá la eliminación de datos de una tarea en base a un diccionario.
