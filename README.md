@@ -1,7 +1,9 @@
 # Lista de Tareas
 ## Descripción del proyecto:
 
-Este proyecto consiste en la implementación de un laboratorio práctico desarrollado en Ruby, con el objetivo de diseñar y construir un programa que permita a los usuarios gestionar de manera eficiente un listado de tareas. La aplicación proporcionará funcionalidades clave para registrar, almacenar, actualizar y visualizar las tareas, fomentando la organización y productividad del usuario.
+Este proyecto consiste en la implementación de un laboratorio práctico desarrollado en Ruby, con el objetivo de diseñar y construir un programa que permita a los usuarios gestionar de manera eficiente un listado de tareas. La aplicación proporcionará funcionalidades clave para registrar, almacenar, actualizar y visualizar las tareas, fomentando la organización y productividad del usuario. 
+
+Nota: Es importante que si quiere cargar un archivo, debe de estar en el mismo repositorio en donde está ubicado el proyecto
 
 ## Clases y Métodos
 
